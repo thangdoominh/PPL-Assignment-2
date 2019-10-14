@@ -1,0 +1,1 @@
+Program([VarDecl(abc,IntType),VarDecl(xyz,StringType),VarDecl(qwe,FloatType)])

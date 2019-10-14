@@ -1,0 +1,1 @@
+Program([VarDecl(_a_,ArrayType(BoolType,3)),VarDecl(b,BoolType),VarDecl(thang,ArrayType(StringType,10)),VarDecl(thuan,ArrayType(StringType,12)),VarDecl(Phong,ArrayType(StringType,9))])

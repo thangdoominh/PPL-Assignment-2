@@ -1,0 +1,4 @@
+
+                boolean _a_[3], b;
+                string thang[10], thuan[12], Phong[9];
+                

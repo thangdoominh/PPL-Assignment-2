@@ -1,0 +1,6 @@
+
+                int a;
+                float b;
+                string c[1];
+                boolean d;
+                

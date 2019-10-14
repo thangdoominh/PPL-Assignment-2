@@ -1,0 +1,4 @@
+int abc;
+                   string xyz; 
+                   float qwe;
+                
