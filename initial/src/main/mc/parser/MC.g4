@@ -62,16 +62,16 @@ idsingle
 
 // funcdeclaration
 funcdeclaration
-		: (singletype | VOIDTYPE | arraypointertype) ID LB paralist_decla? RB  block?
+		: (singletype | VOIDTYPE | arraypointertype) ID LB paralist_decla? RB  block
 		;
 paralist_decla
 		: paradecla (COMMA paradecla)*
 		;
 paradecla
-		: (BOOLTYPE|FLOATTYPE|INTTYPE|STRINGTYPE) (ID|ID LSB RSB)
+		: singletype idsingle (LSB RSB)?
 		;
 arraypointertype
-		: (singletype | VOIDTYPE)  LSB RSB ;
+		: singletype LSB RSB ;
 block
 		: LP (vardeclaration | statement)* RP
 		;

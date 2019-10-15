@@ -68,6 +68,18 @@ class ASTGenSuite(unittest.TestCase):
                               VarDecl("Phong",ArrayType(9,StringType()))]))
         self.assertTrue(TestAST.checkASTGen(input,expect,307))
 
+    def test_func_decl16(self):
+        input = """void main(){}
+                boolean[] func(int b, float x[]){}
+                float b[3];"""
+        expect = str(Program([FuncDecl(Id("main"), [], VoidType(), Block([])),
+                              FuncDecl(Id("func"),
+                              [VarDecl("b", IntType()),VarDecl("x", ArrayPointerType(FloatType()))],
+                              ArrayPointerType(BoolType()),
+                              Block([])),
+                              VarDecl("b", ArrayType(3, FloatType()))]))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 315))
+
     def test__(self):
         input = """
 

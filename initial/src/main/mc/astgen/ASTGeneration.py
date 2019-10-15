@@ -29,7 +29,6 @@ class ASTGeneration(MCVisitor):
         for x in list_id:
             if not isinstance(x, list):
                 listVardec += [VarDecl(x, typeVariable)]
-
             else:
                 listVardec += [VarDecl(x[0], ArrayType(x[1], typeVariable))]
         return listVardec
@@ -60,10 +59,31 @@ class ASTGeneration(MCVisitor):
     # ------------  Funcdeclaration  ------------------
     def visitFuncdeclaration(self,ctx:MCParser.FuncdeclarationContext):
         if ctx.VOIDTYPE():
-            typeFunc = VoidType()
+            returnType = VoidType()
         else:
-            typeFunc = self.visit(ctx.getChild(0))
+            returnType = self.visit(ctx.getChild(0))
+        name = ctx.ID().getText()
+        listParam = []
+        if ctx.paralist_decla():
+            params = self.visit(ctx.paralist_decla())
+            for x in params:
+                if len(x) == 2:
+                    listParam += [VarDecl(x[0], x[1])]
+                else:
+                    listParam += [VarDecl(x[0], ArrayTypePointer(x[1]))]
+
+        body = '{}'
+
+        return FuncDecl(Id(name),listParam, returnType, body)
 
     # ---- Array Pointer Type  -----
     def visitArraypointertype(self,ctx:MCParser.ArraypointertypeContext):
-        if ctx.
+        return ArrayPointerType(self.visit(ctx.singletype()))
+
+    # ----- List Parameter Declaration -------
+    def visitParalist_decla(self, ctx:MCParser.Paralist_declaContext):
+        return [self.visit(x) for x in ctx.paradecla()]
+
+    # ----- Parameter Declaration ------
+    def visitParadecla(self, ctx:MCParser.ParadeclaContext):
+        return [self.visit(ctx.singletype()), self.visit(ctx.idsingle())]

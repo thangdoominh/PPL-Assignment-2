@@ -1,0 +1,3 @@
+void main(){}
+                boolean[] func(int b, float x[]){}
+                float b[3];
