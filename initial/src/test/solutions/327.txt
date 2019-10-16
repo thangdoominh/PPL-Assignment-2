@@ -1,0 +1,11 @@
+Program([
+			FuncDecl(
+						Id(abc),
+						[
+							VarDecl(a,IntType),
+							VarDecl(b,ArrayTypePointer(FloatType))
+						],
+						ArrayTypePointer(StringType),
+						Block([
+							For(None;None;None;
+								Block([]))]))])

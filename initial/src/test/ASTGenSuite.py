@@ -68,56 +68,94 @@ class ASTGenSuite(unittest.TestCase):
                               VarDecl("Phong",ArrayType(9,StringType()))]))
         self.assertTrue(TestAST.checkASTGen(input,expect,307))
 
-    def test_func_decl16(self):
+    def test_func_dec_320(self):
+        input = """void main(){}
+                float b[3];"""
+        expect = str(Program([FuncDecl(Id("main"), [], VoidType(), Block([])),
+                               VarDecl("b", ArrayType(3, FloatType()))]))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 320))
+
+    def test_func_decl_321(self):
         input = """void main(){}
                 boolean[] func(int b, float x[]){}
                 float b[3];"""
-        expect = str(Program([FuncDecl(Id("main"), [], VoidType(), Block([])),
-                              FuncDecl(Id("func"),
-                              [VarDecl("b", IntType()),VarDecl("x", ArrayPointerType(FloatType()))],
-                              ArrayPointerType(BoolType()),
-                              Block([])),
-                              VarDecl("b", ArrayType(3, FloatType()))]))
-        self.assertTrue(TestAST.checkASTGen(input, expect, 315))
+        expect = str(Program([FuncDecl(Id("main"), [], VoidType(), Block([])), FuncDecl(Id("func"),
+                             [VarDecl("b", IntType()),
+                             VarDecl("x", ArrayPointerType(FloatType()))],
+                             ArrayPointerType(BoolType()),
+                             Block([])),
+                             VarDecl("b", ArrayType(3, FloatType()))]))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 321))
 
-    def test__(self):
+    def test_func_nonblock_322(self):
         input = """
+                void main(){}
+                int a[1], b;
+                string[] foo(){}
+                """
+        expect = str(Program([
+            FuncDecl(Id("main"), [], VoidType(),Block([])),
+            VarDecl("a", ArrayType(1,IntType())),
+            VarDecl("b",IntType()),
+            FuncDecl(Id("foo"),[],ArrayPointerType(StringType()),Block([]))]))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 322))
 
+    def test_func_nonblock_323(self):
+        input = """
+                        string a[3], b[0];
+                        float[] foo(int c, float d[], string f[]){}                
+                        """
+        expect = str(Program([VarDecl("a", ArrayType(3, StringType())),
+                              VarDecl("b", ArrayType(0, StringType())),
+                              FuncDecl(Id("foo"),
+                                       [VarDecl("c", IntType()),
+                                        VarDecl("d", ArrayPointerType(FloatType())),
+                                        VarDecl("f", ArrayPointerType(StringType()))],
+                                       ArrayPointerType(FloatType()),
+                                       Block([])
+                                      )]))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 323))
+
+    def test_func_block_ifstm_324(self):
+        input = """
+                void main(int a, int b){
+                    if ()
+                        {string c;}
+                }
                 """
         expect = str(Program([]))
-        self.assertTrue(TestAST.checkASTGen(input, expect, ))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 324))
 
-    def test__(self):
+    def test_func_block_ifstm_325(self):
         input = """
-
+                int sum(float a, float b){
+                    if ()
+                        {}
+                    else 
+                        {string c;}
+                }
                 """
         expect = str(Program([]))
-        self.assertTrue(TestAST.checkASTGen(input, expect, ))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 325))
 
-    def test__(self):
+    def test_func_block_dowhile_326(self):
         input = """
-
+                float haiz(string a[], boolean b){
+                    do{}{}
+                    while 3;
+                }
                 """
         expect = str(Program([]))
-        self.assertTrue(TestAST.checkASTGen(input, expect, ))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 326))
 
-    def test__(self):
+    def test_func_block_for_327(self):
         input = """
-
+                string[] abc(int a, float b[])
+                {
+                    for (;;)
+                    {
+                    }
+                } 
                 """
         expect = str(Program([]))
-        self.assertTrue(TestAST.checkASTGen(input, expect, ))
-
-    def test__(self):
-        input = """
-
-                """
-        expect = str(Program([]))
-        self.assertTrue(TestAST.checkASTGen(input, expect, ))
-
-    def test__(self):
-        input = """
-
-                """
-        expect = str(Program([]))
-        self.assertTrue(TestAST.checkASTGen(input, expect, ))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 327))

@@ -1,0 +1,4 @@
+
+                        string a[3], b[0];
+                        float[] foo(int c, float d[], string f[]){}                
+                        

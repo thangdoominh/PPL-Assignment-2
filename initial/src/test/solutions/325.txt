@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(sum),[VarDecl(a,FloatType),VarDecl(b,FloatType)],IntType,Block([If(None,Block([]),Block([VarDecl(c,StringType)]))]))])

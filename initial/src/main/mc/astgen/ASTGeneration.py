@@ -68,12 +68,11 @@ class ASTGeneration(MCVisitor):
             params = self.visit(ctx.paralist_decla())
             for x in params:
                 if len(x) == 2:
-                    listParam += [VarDecl(x[0], x[1])]
+                    listParam += [VarDecl(x[1], x[0])]
                 else:
-                    listParam += [VarDecl(x[0], ArrayTypePointer(x[1]))]
+                    listParam += [VarDecl(x[1], ArrayPointerType(x[0]))]
 
-        body = '{}'
-
+        body = self.visit(ctx.block())
         return FuncDecl(Id(name),listParam, returnType, body)
 
     # ---- Array Pointer Type  -----
@@ -86,4 +85,64 @@ class ASTGeneration(MCVisitor):
 
     # ----- Parameter Declaration ------
     def visitParadecla(self, ctx:MCParser.ParadeclaContext):
-        return [self.visit(ctx.singletype()), self.visit(ctx.idsingle())]
+        if ctx.getChildCount() == 2:
+            return [self.visit(ctx.singletype()), self.visit(ctx.idsingle())]
+        else:
+            return [self.visit(ctx.singletype()), self.visit(ctx.idsingle()),'[',']']
+
+	# ----- Block in function declaration ---------
+    def visitBlock(self, ctx:MCParser.BlockContext):
+        listBlock = []
+        if ctx.vardeclaration():
+            listBlock += [self.visit(x) for x in ctx.vardeclaration()]
+        elif ctx.statement():
+            listBlock += [self.visit(x) for x in ctx.statement()]
+
+        list_element = [self.visit(ctx.getChild(i+1)) for i in range(ctx.getChildCount() - 2)]
+        element = []
+        for x in list_element:
+            if isinstance(x, list):
+                element += x
+            else:
+                element += [x]
+
+        return Block(element)
+
+    # ----- Statement -----------
+    def visitStatement(self, ctx:MCParser.StatementContext):
+        return self.visit(ctx.getChild(0))
+
+    # ----- If Statenment --------
+    def visitIfstmt(self, ctx:MCParser.IfstmtContext):
+        exp = self.visit(ctx.expression())
+        listStatement = [self.visit(x) for x in ctx.statement()]
+        thenStmt = listStatement[0]
+        elseStmt = None
+        if len(listStatement) != 1:
+            elseStmt = listStatement[1]
+
+        return If(exp,thenStmt) if elseStmt is None else If(exp, thenStmt, elseStmt)
+
+    # ----- Do While Statenment --------
+    def visitDowhilestmt(self,ctx:MCParser.DowhilestmtContext):
+        list_stmt = []
+        exp = self.visit(ctx.expression())
+        if ctx.statement():
+            list_stmt += [self.visit(x) for x in ctx.statement()]
+        return Dowhile(list_stmt, exp)
+
+    # ----- For Statenment --------
+    def visitForstmt(self,ctx:MCParser.ForstmtContext):
+        list_exp = [self.visit(x) for x in ctx.expression()]
+        exp1 = list_exp[0]
+        exp2 = list_exp[1]
+        exp3 = list_exp[2]
+        loop = self.visit(ctx.statement())
+        return For(exp1, exp2, exp3, loop)
+
+    # ----- Breakstmt ------
+    def visitBreak(self, ctx:MCParser.BreakstmtContext):
+        return Break()
+
+    def visitExpression(self,ctx:MCParser.ExpressionContext):
+        return

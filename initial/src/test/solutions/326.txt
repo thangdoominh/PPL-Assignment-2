@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(haiz),[VarDecl(a,ArrayTypePointer(StringType)),VarDecl(b,BoolType)],FloatType,Block([Dowhile([Block([]),Block([])],None)]))])

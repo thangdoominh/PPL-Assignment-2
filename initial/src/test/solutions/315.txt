@@ -1,1 +1,0 @@
-Program([FuncDecl(Id(main),[],VoidType,{}),FuncDecl(Id(func),[VarDecl(IntType,b),VarDecl(FloatType,x)],ArrayTypePointer(BoolType),{}),VarDecl(b,ArrayType(FloatType,3))])
