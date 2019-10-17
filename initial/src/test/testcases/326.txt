@@ -1,6 +1,6 @@
 
-                float haiz(string a[], boolean b){
-                    do{}{}
-                    while a = b;
-                }
-                
+		string enter()
+		{}
+
+		int main(){}
+		

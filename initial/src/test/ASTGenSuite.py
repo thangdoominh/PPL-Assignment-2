@@ -256,3 +256,16 @@ class ASTGenSuite(unittest.TestCase):
                 """
         expect = str(Program([]))
         self.assertTrue(TestAST.checkASTGen(input, expect, 334))
+
+    #------------------------------------
+    def test_funcdec_45(self):
+        input = """ void foo(int x, int y, float z, string s, int a[]) {
+                x = y+c+d;
+            }
+    		"""
+        expect = str(Program([FuncDecl(Id("foo"),
+                                       [VarDecl("x", IntType()), VarDecl("y", IntType()), VarDecl("z", FloatType()),
+                                        VarDecl("s", StringType()), VarDecl("a", ArrayPointerType(IntType()))],
+                                       VoidType(), Block(
+                [BinaryOp("=", Id("x"), BinaryOp("+", BinaryOp("+", Id("y"), Id("c")), Id("d")))]))]))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 345))

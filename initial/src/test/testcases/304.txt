@@ -1,1 +1,2 @@
-float x, y[10], z
+boolean b,c[123],d,e[1234534];
+		

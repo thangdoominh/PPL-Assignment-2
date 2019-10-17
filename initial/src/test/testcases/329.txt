@@ -1,10 +1,8 @@
 
-                float[] xyz(int a, float b[])
-                {
-                    if (a == b)
-                    {
-                        float d;
-                        string f;
-                    }
-                }
-                
+		string enter(){}
+		boolean enter(){}
+		float enter(){}
+		void enter(){}
+
+		int main(){}
+		

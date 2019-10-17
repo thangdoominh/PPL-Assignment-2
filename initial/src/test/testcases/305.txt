@@ -1,4 +1,6 @@
-int abc;
-                   string xyz; 
-                   float qwe;
-                
+
+		string b,c[123],d,e[1234534];
+		boolean b,c[123],d,e[1234534];
+		int a,b,c;
+		float x,y,z;
+		

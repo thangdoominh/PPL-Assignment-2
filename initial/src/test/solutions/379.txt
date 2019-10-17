@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(main),[],FloatType,Block([If(Id(sky),If(Id(sea),Block([]),Block([Id(earth)])),Block([Id(rain)])),If(Id(light),Block([]),Block([Id(dark)]))]))])

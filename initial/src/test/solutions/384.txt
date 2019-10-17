@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(main),[],IntType,Block([For(BinaryOp(=,Id(i),IntLiteral(3));BinaryOp(<,Id(i),Id(infinity));BinaryOp(=,Id(i),BinaryOp(+,Id(i),IntLiteral(1)));If(Id(tesserract),CallExpr(Id(whoCares),[]))),For(Id(exp);Id(exp);Id(exp);Block([Block([CallExpr(Id(stillWhoCares),[])])]))]))])

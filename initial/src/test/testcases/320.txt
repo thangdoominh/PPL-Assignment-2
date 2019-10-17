@@ -1,2 +1,10 @@
-void main(){}
-                float b[3];
+
+		boolean c[123],e[1234534];
+
+		int main()
+		{
+			float x,y,z;
+			string b,c[123],d,e[1234534];
+			boolean b,c[123],d,e[1234534];
+		}
+		

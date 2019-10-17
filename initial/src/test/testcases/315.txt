@@ -1,3 +1,8 @@
-void main(){}
-                boolean[] func(int b, float x[]){}
-                float b[3];
+
+		string b,c[123],d,e[1234534];
+		boolean b,c[123],d,e[1234534];
+		string b,c[123],d,e[1234534];
+		float x,y,z;
+		string b,c[123],d,e[1234534];
+		boolean b,c[123],d,e[1234534];
+		

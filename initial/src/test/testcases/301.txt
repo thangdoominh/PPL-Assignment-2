@@ -1,1 +1,2 @@
-string a, b;
+float x,y[12],z;
+		

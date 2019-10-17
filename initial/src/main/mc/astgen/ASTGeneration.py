@@ -141,20 +141,20 @@ class ASTGeneration(MCVisitor):
         return For(exp1, exp2, exp3, loop)
 
     # ----- Breakstmt ------
-    def visitBreak(self):
+    def visitBreakstmt(self,ctx:MCParser.BreakstmtContext):
         return Break()
 
     # ----- Continuestmt ------
-    def visitContinuestmt(self):
+    def visitContinuestmt(self,ctx:MCParser.ContinuestmtContext):
         return Continue()
 
     # ----- Returnstmt -------
     def visitReturnstmt(self,ctx:MCParser.ReturnstmtContext):
-        return Return() if ctx.expression() is None else Return(ctx.expression())
+        return Return() if ctx.expression() is None else Return(self.visit(ctx.expression()))
 
     # ----- Expressionstmt ------
     def visitExpressionstmt(self, ctx:MCParser.ExpressionContext):
-        return self.visit(ctx.expression)
+        return self.visit(ctx.expression())
 
     # ----- Expression ------
     def visitExpression(self,ctx:MCParser.ExpressionContext):
@@ -251,7 +251,7 @@ class ASTGeneration(MCVisitor):
         return self.visit(ctx.getChild(0))
 
     def visitOperand(self, ctx:MCParser.OperandContext):
-        value = ctx.getChild(0)
+        value = ctx.getChild(0).getText()
         if ctx.INTLIT():
             return IntLiteral(value)
         elif ctx.FLOATLIT():
