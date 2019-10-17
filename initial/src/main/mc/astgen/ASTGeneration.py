@@ -141,8 +141,137 @@ class ASTGeneration(MCVisitor):
         return For(exp1, exp2, exp3, loop)
 
     # ----- Breakstmt ------
-    def visitBreak(self, ctx:MCParser.BreakstmtContext):
+    def visitBreak(self):
         return Break()
 
+    # ----- Continuestmt ------
+    def visitContinuestmt(self):
+        return Continue()
+
+    # ----- Returnstmt -------
+    def visitReturnstmt(self,ctx:MCParser.ReturnstmtContext):
+        return Return() if ctx.expression() is None else Return(ctx.expression())
+
+    # ----- Expressionstmt ------
+    def visitExpressionstmt(self, ctx:MCParser.ExpressionContext):
+        return self.visit(ctx.expression)
+
+    # ----- Expression ------
     def visitExpression(self,ctx:MCParser.ExpressionContext):
-        return
+        if ctx.ASSIGN_OP():
+            op = ctx.ASSIGN_OP().getText()
+            left = self.visit(ctx.exp1())
+            right = self.visit(ctx.expression())
+            return BinaryOp(op, left, right)
+        else:
+            return self.visit(ctx.exp1())
+
+
+    # ----- exp1 ------
+    def visitExp1(self, ctx:MCParser.Exp1Context):
+        if ctx.OR_OP():
+            op = ctx.OR_OP().getText()
+            left = self.visit(ctx.exp1())
+            right = self.visit(ctx.exp2())
+            return BinaryOp(op, left, right)
+        else:
+            return self.visit(ctx.exp2())
+
+
+    def visitExp2(self, ctx:MCParser.Exp2Context):
+        if ctx.AND_OP():
+            op = ctx.AND_OP().getText()
+            left = self.visit(ctx.exp2())
+            right = self.visit(ctx.exp3())
+            return BinaryOp(op, left, right)
+        else:
+            return self.visit(ctx.exp3())
+
+    def visitExp3(self, ctx:MCParser.Exp3Context):
+        if ctx.EQUAL_OP():
+            op = ctx.EQUAL_OP().getText()
+            [left, right] = [self.visit(exp) for exp in ctx.exp4()]
+            return BinaryOp(op, left, right)
+        elif ctx.NOT_EQUAL_OP():
+            op = ctx.NOT_EQUAL_OP().getText()
+            [left,right] = [self.visit(exp) for exp in ctx.exp4()]
+            return BinaryOp(op, left, right)
+        else:
+            return [self.visit(exp) for exp in ctx.exp4()]
+
+    def visitExp4(self, ctx:MCParser.Exp4Context):
+        if ctx.getChildCount() == 1:
+            return [self.visit(exp) for exp in ctx.exp5()]
+        else:
+            op = ctx.getChild(1).getText()
+            [left, right] = [self.visit(exp) for exp in ctx.exp5()]
+            return BinaryOp(op, left, right)
+
+    def visitExp5(self,ctx:MCParser.Exp5Context):
+        if ctx.getChildCount() == 1:
+            return self.visit(ctx.exp6())
+        else:
+            op = ctx.getChild(1).getText()
+            left = self.visit(ctx.exp5())
+            right = self.visit(ctx.exp6())
+            return BinaryOp(op, left, right)
+
+    def visitExp6(self, ctx: MCParser.Exp6Context):
+        if ctx.getChildCount() == 1:
+            return self.visit(ctx.exp7())
+        else:
+            op = ctx.getChild(1).getText()
+            left = self.visit(ctx.exp6())
+            right = self.visit(ctx.exp7())
+            return BinaryOp(op, left, right)
+
+    def visitExp7(self,ctx:MCParser.Exp7Context):
+        if ctx.getChildCount() == 1:
+            return self.visit(ctx.exp8())
+        else:
+            op = ctx.getChild(0).getText()
+            body = self.visit(ctx.exp7())
+            return UnaryOp(op, body)
+
+    def visitExp8(self, ctx: MCParser.Exp8Context):
+        if ctx.getChildCount() == 1:
+            return self.visit(ctx.exp9())
+        else:
+            arr = self.visit(ctx.exp9())
+            idx = self.visit(ctx.expression())
+            return ArrayCell(arr, idx)
+
+    def visitExp9(self,ctx:MCParser.Exp9Context):
+        if ctx.getChildCount() == 1:
+            return self.visit(ctx.exp10())
+        else:
+            return self.visit(ctx.expression())
+
+    def visitExp10(self, ctx:MCParser.Exp10Context):
+        return self.visit(ctx.getChild(0))
+
+    def visitOperand(self, ctx:MCParser.OperandContext):
+        value = ctx.getChild(0)
+        if ctx.INTLIT():
+            return IntLiteral(value)
+        elif ctx.FLOATLIT():
+            return FloatLiteral(value)
+        elif ctx.STRINGLIT():
+            return StringLiteral(value)
+        elif ctx.BOOLLIT():
+            return BooleanLiteral(value)
+        else:
+            return Id(ctx.ID().getText())
+
+    def visitFunccall(self, ctx:MCParser.FunccallContext):
+        method = ctx.ID().getText()
+        param = []
+        if ctx.paralist_call():
+            param = self.visit(ctx.paralist_call())
+        return CallExpr(Id(method), param)
+
+    def visitParalist_call(self, ctx:MCParser.Paralist_callContext):
+        return [self.visit(param) for param in ctx.para_call()]
+
+    def visitPara_call(self, ctx:MCParser.Para_callContext):
+        return self.visit(ctx.getChild(0))

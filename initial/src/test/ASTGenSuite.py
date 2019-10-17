@@ -119,7 +119,7 @@ class ASTGenSuite(unittest.TestCase):
     def test_func_block_ifstm_324(self):
         input = """
                 void main(int a, int b){
-                    if ()
+                    if (a = b)
                         {string c;}
                 }
                 """
@@ -129,7 +129,7 @@ class ASTGenSuite(unittest.TestCase):
     def test_func_block_ifstm_325(self):
         input = """
                 int sum(float a, float b){
-                    if ()
+                    if (a = b)
                         {}
                     else 
                         {string c;}
@@ -142,7 +142,7 @@ class ASTGenSuite(unittest.TestCase):
         input = """
                 float haiz(string a[], boolean b){
                     do{}{}
-                    while 3;
+                    while a = b;
                 }
                 """
         expect = str(Program([]))
@@ -152,10 +152,37 @@ class ASTGenSuite(unittest.TestCase):
         input = """
                 string[] abc(int a, float b[])
                 {
-                    for (;;)
+                    for (a || b; a= b;a=b )
                     {
                     }
                 } 
                 """
         expect = str(Program([]))
         self.assertTrue(TestAST.checkASTGen(input, expect, 327))
+
+    def test_and_op_328(self):
+        input = """
+                string[] abc(int a, float b[])
+                {
+                    if (a && b)
+                    {
+                        float d;
+                    }
+                } 
+                """
+        expect = str(Program([]))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 328))
+
+    def test_equal_op_329(self):
+        input = """
+                float[] xyz(int a, float b[])
+                {
+                    if (a == b)
+                    {
+                        float d;
+                        string f;
+                    }
+                }
+                """
+        expect = str(Program([]))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 329))

@@ -1,6 +1,6 @@
 
                 void main(int a, int b){
-                    if ()
+                    if (a = b)
                         {string c;}
                 }
                 

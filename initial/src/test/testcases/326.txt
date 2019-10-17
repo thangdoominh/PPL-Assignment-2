@@ -1,6 +1,6 @@
 
                 float haiz(string a[], boolean b){
                     do{}{}
-                    while 3;
+                    while a = b;
                 }
                 

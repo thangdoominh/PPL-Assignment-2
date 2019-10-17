@@ -1,1 +1,1 @@
-Program([FuncDecl(Id(sum),[VarDecl(a,FloatType),VarDecl(b,FloatType)],IntType,Block([If(None,Block([]),Block([VarDecl(c,StringType)]))]))])
+Program([FuncDecl(Id(sum),[VarDecl(a,FloatType),VarDecl(b,FloatType)],IntType,Block([If(BinaryOp(=,[[<AST.Id object at 0x105d0e4d0>]],[[<AST.Id object at 0x105d0e350>]]),Block([]),Block([VarDecl(c,StringType)]))]))])

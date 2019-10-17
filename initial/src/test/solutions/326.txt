@@ -1,1 +1,1 @@
-Program([FuncDecl(Id(haiz),[VarDecl(a,ArrayTypePointer(StringType)),VarDecl(b,BoolType)],FloatType,Block([Dowhile([Block([]),Block([])],None)]))])
+Program([FuncDecl(Id(haiz),[VarDecl(a,ArrayTypePointer(StringType)),VarDecl(b,BoolType)],FloatType,Block([Dowhile([Block([]),Block([])],BinaryOp(=,[[<AST.Id object at 0x105cf1210>]],[[<AST.Id object at 0x105cf14d0>]]))]))])

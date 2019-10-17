@@ -1,6 +1,6 @@
 
                 int sum(float a, float b){
-                    if ()
+                    if (a = b)
                         {}
                     else 
                         {string c;}
