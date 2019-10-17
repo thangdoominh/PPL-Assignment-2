@@ -1,1 +1,1 @@
-Program([FuncDecl(Id(main),[VarDecl(a,IntType),VarDecl(b,IntType)],VoidType,Block([If(BinaryOp(=,[[<AST.Id object at 0x105d2ccd0>]],[[<AST.Id object at 0x105d2cdd0>]]),Block([VarDecl(c,StringType)]))]))])
+Program([FuncDecl(Id(main),[VarDecl(a,IntType),VarDecl(b,IntType)],VoidType,Block([If(BinaryOp(=,Id(a),Id(b)),Block([VarDecl(c,StringType)]))]))])

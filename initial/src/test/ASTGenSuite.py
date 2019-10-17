@@ -138,7 +138,7 @@ class ASTGenSuite(unittest.TestCase):
         expect = str(Program([]))
         self.assertTrue(TestAST.checkASTGen(input, expect, 325))
 
-    def test_func_block_dowhile_326(self):
+    def test_assign_op_326(self):
         input = """
                 float haiz(string a[], boolean b){
                     do{}{}
@@ -148,7 +148,7 @@ class ASTGenSuite(unittest.TestCase):
         expect = str(Program([]))
         self.assertTrue(TestAST.checkASTGen(input, expect, 326))
 
-    def test_func_block_for_327(self):
+    def test_or_op_327(self):
         input = """
                 string[] abc(int a, float b[])
                 {
@@ -186,3 +186,73 @@ class ASTGenSuite(unittest.TestCase):
                 """
         expect = str(Program([]))
         self.assertTrue(TestAST.checkASTGen(input, expect, 329))
+
+    def test_not_equal_op_330(self):
+        input = """
+                float[] xyz(int a, float b[])
+                {
+                    if (a != b)
+                    {
+                        float d;
+                        string f;
+                    }
+                }
+                """
+        expect = str(Program([]))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 330))
+
+    def test_less_op_331(self):
+        input = """
+                float[] xyz(int a, float b[])
+                {
+                    if (a < b)
+                    {
+                        float d;
+                        string f;
+                    }
+                }
+                """
+        expect = str(Program([]))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 331))
+
+    def test_less_equal_op_332(self):
+        input = """
+                float[] xyz(int a, float b[])
+                {
+                    if (a <= b)
+                    {
+                        float d;
+                        string f;
+                    }
+                }
+                """
+        expect = str(Program([]))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 332))
+
+    def test_greater_op_333(self):
+        input = """
+                float[] xyz(int a, float b[])
+                {
+                    if (a > b)
+                    {
+                        float d;
+                        string f;
+                    }
+                }
+                """
+        expect = str(Program([]))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 333))
+
+    def test_greater_equal_op_334(self):
+        input = """
+                float[] xyz(int a, float b[])
+                {
+                    if (a >= b)
+                    {
+                        float d;
+                        string f;
+                    }
+                }
+                """
+        expect = str(Program([]))
+        self.assertTrue(TestAST.checkASTGen(input, expect, 334))

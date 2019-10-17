@@ -197,11 +197,11 @@ class ASTGeneration(MCVisitor):
             [left,right] = [self.visit(exp) for exp in ctx.exp4()]
             return BinaryOp(op, left, right)
         else:
-            return [self.visit(exp) for exp in ctx.exp4()]
+            return self.visit(ctx.exp4(0))
 
     def visitExp4(self, ctx:MCParser.Exp4Context):
         if ctx.getChildCount() == 1:
-            return [self.visit(exp) for exp in ctx.exp5()]
+            return self.visit(ctx.exp5(0))
         else:
             op = ctx.getChild(1).getText()
             [left, right] = [self.visit(exp) for exp in ctx.exp5()]
