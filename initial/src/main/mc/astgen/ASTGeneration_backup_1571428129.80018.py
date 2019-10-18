@@ -5,7 +5,7 @@
 
 from MCVisitor import MCVisitor
 from MCParser import MCParser
-from ExpectAST import *
+from AST import *
 
 class ASTGeneration(MCVisitor):
     def visitProgram(self,ctx:MCParser.ProgramContext):

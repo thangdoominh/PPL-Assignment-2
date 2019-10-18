@@ -1,1 +1,1 @@
-Program([FuncDecl(Id(main),[],VoidType,Block([])),VarDecl(a,ArrayType(IntType,1)),VarDecl(b,IntType),FuncDecl(Id(foo),[],ArrayTypePointer(StringType),Block([]))])
+Program([FuncDecl(Id("main"),[],VoidType(),Block([])),VarDecl("a",ArrayType(1,IntType())),VarDecl("b",IntType()),FuncDecl(Id("foo"),[],ArrayPointerType(StringType()),Block([]))])

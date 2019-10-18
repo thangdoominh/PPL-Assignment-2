@@ -1,1 +1,1 @@
-Program([VarDecl(_a_,ArrayType(BoolType,3)),VarDecl(b,BoolType),VarDecl(thang,ArrayType(StringType,10)),VarDecl(thuan,ArrayType(StringType,12)),VarDecl(Phong,ArrayType(StringType,9))])
+Program([VarDecl("_a_",ArrayType(3,BoolType())),VarDecl("b",BoolType()),VarDecl("thang",ArrayType(10,StringType())),VarDecl("thuan",ArrayType(12,StringType())),VarDecl("Phong",ArrayType(9,StringType()))])

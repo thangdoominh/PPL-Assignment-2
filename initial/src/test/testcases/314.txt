@@ -1,3 +1,3 @@
-boolean c;
-            string d[3], f;
-            void main(int a[], float b){}
+
+int a;
+                

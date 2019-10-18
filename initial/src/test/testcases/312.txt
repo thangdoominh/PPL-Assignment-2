@@ -1,2 +1,4 @@
-string c, d[3];
-            int main(int a[], float b){}
+
+int a;
+
+                

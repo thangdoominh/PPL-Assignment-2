@@ -1,1 +1,5 @@
-int main(int a[]){}
+
+int abc;
+                   string xyz; 
+                   float qwe;
+                
