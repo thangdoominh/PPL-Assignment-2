@@ -1,2 +1,1 @@
-string b,c[123],d,e[1234534];
-		
+float a,b,c;

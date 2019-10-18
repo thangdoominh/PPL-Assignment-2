@@ -1,15 +1,3 @@
-
-		void execution()
-		{
-			"Five final tests!!!!!!";
-			//Pass or die;
-			/*
-			{
-				"You will be sentenced to death if you treat me as a block!";
-			}
-			*/
-			{
-
-			}
-		}
-		
+int get(int a){
+            return a[b[2%(main())]];
+        }

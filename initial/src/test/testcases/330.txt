@@ -1,4 +1,10 @@
 
-		int main(int a,int b)
-		{}
-		
+                float[] xyz(int a, float b[])
+                {
+                    if (a != b)
+                    {
+                        float d;
+                        string f;
+                    }
+                }
+                

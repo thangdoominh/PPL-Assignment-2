@@ -1,4 +1,4 @@
-int main () {
-                     int a, b, c;
-                   }
-		
+int main(){
+            int i, a[5];
+            for (i = 10; i > 0; --i) {a[i] = i;}
+        }

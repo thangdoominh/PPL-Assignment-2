@@ -1,16 +1,4 @@
-
-		void main()
-		{
-			do
-				do
-					do
-						do
-						{
-
-						}
-						while true;
-					while false;
-				while (true&&true);
-			while (false || true && false);
-		}
-		
+int[] ntt(int n, int t){
+            if (t == 0) return ntt(t,n-t);
+            else return ntt(n+t,n-t);
+        }

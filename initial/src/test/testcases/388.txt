@@ -1,10 +1,4 @@
-int main()
-		{
-			int a,b,c;
-			do
-				yolo();
-				haveGirlfriends(_,_,_,_,_);
-				{{}{}{}{}{}{}{{{{{}}}}}{}{}}
-			while (young);
-		}
-		
+int main(){
+            boolean a,b,c,d;
+            a = b > c != d;
+        }

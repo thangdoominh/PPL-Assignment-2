@@ -1,1 +1,1 @@
-Program([FuncDecl(Id(enter),[],StringType,Block([])),FuncDecl(Id(enter),[],BoolType,Block([])),FuncDecl(Id(enter),[],FloatType,Block([])),FuncDecl(Id(enter),[],VoidType,Block([])),FuncDecl(Id(main),[],IntType,Block([]))])
+Program([FuncDecl(Id(xyz),[VarDecl(a,IntType),VarDecl(b,ArrayTypePointer(FloatType))],ArrayTypePointer(FloatType),Block([If(BinaryOp(==,Id(a),Id(b)),Block([VarDecl(d,FloatType),VarDecl(f,StringType)]))]))])

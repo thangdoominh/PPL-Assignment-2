@@ -1,2 +1,5 @@
-int main(string a,string b[],string c[],string d,string e[]){}
-		
+void main(){
+            int a;
+            a = 1;
+            do a = a + 1; while a < 10;
+        }

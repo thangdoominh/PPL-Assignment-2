@@ -1,12 +1,7 @@
-int main()
-		{
-			if (abc != cdf) {
-                a = b + 1;
-                b = c + 1;
-                if(a) a = b;
-                {
-                    ah(2);
-                }
-            }
-		}
-		
+void main(){
+            int i;
+            i = 0;
+            int s;
+            s = 0;
+            for (i;i < 10;i = i + 1) if (i == 5) break; else s = s + 1;
+        }

@@ -1,6 +1,6 @@
-int main()
-		{
-            if (number%2) return;
-            else numberToBin(number);
-		}
-		
+int main(){
+            int i, j;
+            j = 0;
+            i = 0;
+            for (i; i > 0 && j < 10; i = i + 1) --j;
+        }

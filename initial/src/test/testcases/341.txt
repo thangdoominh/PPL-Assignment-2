@@ -1,5 +1,7 @@
-
-		int main(int a,float b,string c,boolean d){}
-
-		int main(int a,float b[],string c,boolean d[]){}
-		
+void main(){
+            int a;
+            int b;
+            a = 1;
+            b = 0;
+            do {a = a + 1; b = b - 1;} while a <= 10 || b > -10 ;
+        }

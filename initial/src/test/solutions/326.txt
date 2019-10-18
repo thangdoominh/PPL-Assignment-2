@@ -1,1 +1,1 @@
-Program([FuncDecl(Id(enter),[],StringType,Block([])),FuncDecl(Id(main),[],IntType,Block([]))])
+Program([FuncDecl(Id(haiz),[VarDecl(a,ArrayTypePointer(StringType)),VarDecl(b,BoolType)],FloatType,Block([Dowhile([Block([]),Block([])],BinaryOp(=,Id(a),Id(b)))]))])

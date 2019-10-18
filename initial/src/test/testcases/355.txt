@@ -1,5 +1,5 @@
-int main()
-		{
-            if (true) a = b;
-		}
-		
+void main(){
+            int i;
+            i = 0;
+            for (i;i < 10;i = i + 1) if (i == 5) break;
+        }

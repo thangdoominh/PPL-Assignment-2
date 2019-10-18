@@ -1,1 +1,0 @@
-Program([FuncDecl(Id(_mai_n),[],IntType,Block([VarDecl(a,IntType),VarDecl(c,ArrayType(IntType,5)),VarDecl(d,ArrayType(IntType,5)),VarDecl(_,IntType),VarDecl(_123,IntType),VarDecl(asdas,FloatType),VarDecl(x,BoolType)]))])

@@ -1,16 +1,9 @@
-int main()
-		{
-			for(a[2]; i < 2; i = a[2] + 1) 
-            {
-                b = a + 1;
-                foo(3);
-                for(t; true; abc) ahihi(21);
+int main(){
+            float y; int i;
+            y = 1E3;
+            for (i = 0; i < 10; i = i + 1) {
+                y = y + 1.e4;
+                if (y > 3.3e5) y = .1E3; break;
             }
-
-            for(i + 3 + a[2]; bcd < 2; a[b] = a[foo(2)]) {
-                bcd = bcd + 1;
-            }
-
-            for(true;true;false) a = 6 <= b;
-		}
-		
+            return y;
+        }

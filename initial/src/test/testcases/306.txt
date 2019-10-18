@@ -1,7 +1,6 @@
-int main()
-		{
-			string b,c[123],d,e[1234534];
-			boolean b,c[123],d,e[1234534];
-		}
 
-		
+                int a;
+                float b;
+                string c[1];
+                boolean d;
+                

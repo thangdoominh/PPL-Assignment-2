@@ -1,12 +1,1 @@
-int main()
-		{	
-			string b,c[123],d,e[1234534];
-			string b,c[123],d,e[1234534];
-			string b,c[123],d,e[1234534];
-			string b,c[123],d,e[1234534];
-			string b,c[123],d,e[1234534];
-			string b,c[123],d,e[1234534];
-			string b,c[123],d,e[1234534];
-			string b,c[123],d,e[1234534];
-		}
-		
+int main(int a[]){}

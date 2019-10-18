@@ -1,10 +1,4 @@
 
-		string b,c[123],d,e[1234534];
-
-		int main()
-		{
-			float x,y,z;
-			string b,c[123],d,e[5413];
-			boolean b,c[123],d,e[1234534];
-		}
-		
+                        string a[3], b[0];
+                        float[] foo(int c, float d[], string f[]){}                
+                        

@@ -1,5 +1,4 @@
-int main (int b,int c[]) {
-                        int a; float a;
-                             int c;
-                        }
-		
+int main(){
+            int i, b, a[5];
+            for (i = 10; i > 0; --i) a[i] = i; b = 0;
+        }

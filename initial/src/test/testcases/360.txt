@@ -1,7 +1,6 @@
-int main()
-		{
-			do 
-			{}{}{}{}{}
-			while (a==2);
-		}
-		
+void main(){
+            boolean b;
+            int i, j;
+            j = 10;
+            for (i = 0; i < 10; i = i + 1) {b = i > 5; if (b == true) continue;}
+        }

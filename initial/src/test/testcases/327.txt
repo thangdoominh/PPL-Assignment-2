@@ -1,5 +1,8 @@
 
-		boolean enter(){}
-
-		int main(){}
-		
+                string[] abc(int a, float b[])
+                {
+                    for (a || b; a= b;a=b )
+                    {
+                    }
+                } 
+                

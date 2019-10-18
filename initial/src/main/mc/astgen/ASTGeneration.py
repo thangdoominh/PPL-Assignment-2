@@ -51,7 +51,7 @@ class ASTGeneration(MCVisitor):
 
     # # idarray: ID LSB INTLIT RSB;
     def visitIdarray(self, ctx:MCParser.IdarrayContext):
-        return [ctx.ID().getText(), ctx.INTLIT().getText()]
+        return [ctx.ID().getText(), int(ctx.INTLIT().getText())]
 
     def visitIdsingle(self, ctx:MCParser.IdsingleContext):
         return ctx.ID().getText()
@@ -71,7 +71,6 @@ class ASTGeneration(MCVisitor):
                     listParam += [VarDecl(x[1], x[0])]
                 else:
                     listParam += [VarDecl(x[1], ArrayPointerType(x[0]))]
-
         body = self.visit(ctx.block())
         return FuncDecl(Id(name),listParam, returnType, body)
 
@@ -253,13 +252,16 @@ class ASTGeneration(MCVisitor):
     def visitOperand(self, ctx:MCParser.OperandContext):
         value = ctx.getChild(0).getText()
         if ctx.INTLIT():
-            return IntLiteral(value)
+            return IntLiteral(int(value))
         elif ctx.FLOATLIT():
-            return FloatLiteral(value)
+            return FloatLiteral(float(value))
         elif ctx.STRINGLIT():
             return StringLiteral(value)
         elif ctx.BOOLLIT():
-            return BooleanLiteral(value)
+            if value == "true":
+                return BooleanLiteral(True)
+            else:
+                return BooleanLiteral(False)
         else:
             return Id(ctx.ID().getText())
 

@@ -1,6 +1,5 @@
-int main()
-		{
-			for (i;j;t) {
-            }
-		}
-		
+int main(){
+            int i, j, a[000000000000000000000000005];
+            for (i = 10; i > 0; --i) for (j = 0; j < i; j = j + 1) a[i] = j;
+            return a[i];
+        }

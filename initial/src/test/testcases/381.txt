@@ -1,13 +1,7 @@
-int main()
-		{
-			if (earth)
-				do
-				{
-					taylorSwift;
-				}
-				while edSheeran;
-			else
-				MTP;
-		}
-
-		
+int[] ntt(int n[], int t[]){
+            return n[t]+t[n];
+        }
+        int main(){
+            int n[4], t[4];
+            if (ntt(n[3],t[0]) != 0) return ntt(n[3],t[3]);
+        }

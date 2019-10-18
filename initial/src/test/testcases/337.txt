@@ -1,2 +1,7 @@
-int main(boolean a,boolean b[],boolean c[],boolean d,boolean e[]){}
-		
+void main(){
+            int a;
+            int b;
+            a = 1;
+            b = 0;
+            do {a = a + 1; b = b - 1;} while a <= 10;
+        }

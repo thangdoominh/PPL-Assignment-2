@@ -1,5 +1,9 @@
 
-		float enter(){}
-
-		int main(){}
-		
+                string[] abc(int a, float b[])
+                {
+                    if (a && b)
+                    {
+                        float d;
+                    }
+                } 
+                
